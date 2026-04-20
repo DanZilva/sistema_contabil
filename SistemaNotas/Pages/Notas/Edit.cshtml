@@ -1,0 +1,44 @@
+@page
+@model SistemaNotas.Pages.Notas.EditModel
+
+<h1>✏️ Editar Nota Fiscal</h1>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Nota.Id" />
+
+    <div>
+        <label>Número</label>
+        <input asp-for="Nota.Numero" />
+    </div>
+
+    <div>
+        <label>Fornecedor</label>
+        <input asp-for="Nota.Fornecedor" />
+    </div>
+
+    <div>
+        <label>Valor</label>
+        <input asp-for="Nota.Valor" />
+    </div>
+
+    <div>
+        <label>Data Emissão</label>
+        <input type="date" asp-for="Nota.DataEmissao" />
+    </div>
+
+    <div>
+        <label>Vencimento</label>
+        <input type="date" asp-for="Nota.DataVencimento" />
+    </div>
+
+    <div>
+        <label>Setor</label>
+        <input asp-for="Nota.Setor" />
+    </div>
+
+    <br />
+
+    <button type="submit">Salvar</button>
+
+</form>

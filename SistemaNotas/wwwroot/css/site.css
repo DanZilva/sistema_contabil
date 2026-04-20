@@ -1,155 +1,170 @@
+/* 🌙 Layout geral */
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
-    margin: 0;
+    background-color: #f4f6f9;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
-.titulo {
-    text-align: center;
-    margin-top: 20px;
+/* 📦 Container */
+.content {
+    padding: 30px;
 }
 
-.filtro-box {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    margin: 20px 0;
-}
-
-.filtro-form {
-    display: flex;
-    gap: 10px;
-}
-
-.tabela {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-th {
-    background: #111827;
-    color: white;
-    padding: 10px;
-}
-
-td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-tr:hover {
-    background: #f1f5f9;
-}
-
-/* FORM INLINE */
-.inline-form {
-    display: inline-flex;
-    gap: 5px;
-}
-
-/* INPUT */
-input {
-    padding: 6px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-/* BOTÕES */
-button {
-    background: #2563eb;
-    color: white;
-    border: none;
-    padding: 6px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #1d4ed8;
-}
-
-.btn-success {
-    background: #16a34a;
-}
-
-.btn-success:hover {
-    background: #15803d;
-}
-
-/* STATUS */
-.status {
-    padding: 4px 8px;
-    border-radius: 5px;
-    color: white;
-    font-size: 12px;
-}
-
-.Recebida {
-    background: gray;
-}
-
-.Classificada {
-    background: orange;
-}
-
-.EmProcesso {
-    background: #2563eb;
-}
-
-.Concluida {
-    background: #16a34a;
-}
-.layout {
-    display: flex;
-}
-
+/* 📊 Sidebar */
 .sidebar {
-    width: 200px;
-    height: 100vh;
-    background: #111827;
+    background: linear-gradient(180deg, #0f172a, #1e293b);
     color: white;
+    width: 220px;
+    min-height: 100vh;
     padding: 20px;
+}
+
+.sidebar h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
 }
 
 .sidebar a {
     display: block;
-    color: white;
+    padding: 10px;
+    margin-bottom: 5px;
+    color: #cbd5e1;
     text-decoration: none;
-    margin: 10px 0;
+    border-radius: 6px;
+    transition: 0.2s;
 }
 
 .sidebar a:hover {
-    color: #60a5fa;
+    background-color: #334155;
+    color: white;
 }
 
-.content {
-    flex: 1;
-    padding: 20px;
+/* 🧾 Tabela */
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.cards {
+.tabela th {
+    background-color: #0f172a;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabela td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+/* 🎯 Status */
+.status {
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status.Recebida {
+    background: #6b7280;
+    color: white;
+}
+
+.status.Classificada {
+    background: #3b82f6;
+    color: white;
+}
+
+.status.Concluida {
+    background: #22c55e;
+    color: white;
+}
+
+/* 🔘 Botões */
+button {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Azul */
+button[asp-page-handler="Classificar"] {
+    background: #3b82f6;
+    color: white;
+}
+
+/* Verde */
+.btn-success {
+    background: #22c55e;
+    color: white;
+}
+
+/* Vermelho */
+.btn-delete {
+    background: #ef4444;
+    color: white;
+}
+
+/* ✏️ Editar */
+.btn-editar {
+    color: #3b82f6;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* 🧩 Forms inline */
+.inline-form {
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
+}
+
+/* 📦 Inputs */
+input {
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.form-box {
     display: flex;
-    gap: 20px;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.titulo {
+    font-size: 28px;
     margin-bottom: 20px;
 }
 
 .card {
     background: white;
     padding: 20px;
-    border-radius: 10px;
-    width: 200px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-top: 20px;
 }
 
-.card h2 {
-    margin: 0;
+.layout {
+    display: flex;
+    min-height: 100vh;
 }
 
-.card p {
-    font-size: 24px;
-    font-weight: bold;
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+    background: #f8fafc;
 }

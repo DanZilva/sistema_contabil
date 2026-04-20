@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dtihp001\\Documents\\Projeto Contabil\\SistemaNotas\\SistemaNotas.csproj": {}
+    "C:\\Users\\dtihp001\\Documents\\Projeto Contabil\\sistema_contabil\\SistemaNotas\\SistemaNotas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dtihp001\\Documents\\Projeto Contabil\\SistemaNotas\\SistemaNotas.csproj": {
+    "C:\\Users\\dtihp001\\Documents\\Projeto Contabil\\sistema_contabil\\SistemaNotas\\SistemaNotas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dtihp001\\Documents\\Projeto Contabil\\SistemaNotas\\SistemaNotas.csproj",
+        "projectUniqueName": "C:\\Users\\dtihp001\\Documents\\Projeto Contabil\\sistema_contabil\\SistemaNotas\\SistemaNotas.csproj",
         "projectName": "SistemaNotas",
-        "projectPath": "C:\\Users\\dtihp001\\Documents\\Projeto Contabil\\SistemaNotas\\SistemaNotas.csproj",
+        "projectPath": "C:\\Users\\dtihp001\\Documents\\Projeto Contabil\\sistema_contabil\\SistemaNotas\\SistemaNotas.csproj",
         "packagesPath": "C:\\Users\\dtihp001\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dtihp001\\Documents\\Projeto Contabil\\SistemaNotas\\obj\\",
+        "outputPath": "C:\\Users\\dtihp001\\Documents\\Projeto Contabil\\sistema_contabil\\SistemaNotas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dtihp001\\AppData\\Roaming\\NuGet\\NuGet.Config"

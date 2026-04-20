@@ -52,4 +52,25 @@ public class ContabilModel : PageModel
 
         return RedirectToPage();
     }
+
+    public IActionResult OnPostExcluir(int id)
+    {
+        var perfil = HttpContext.Session.GetString("Perfil");
+
+        //Segurança
+        if (perfil != "Contabil")
+        {
+            return RedirectToPage("/Login");
+        }
+
+        var nota = _context.Notas.FirstOrDefault(n => n.Id == id);
+
+        if (nota != null)
+        {
+            _context.Notas.Remove(nota);
+            _context.SaveChanges();
+        }
+
+        return RedirectToPage();
+    }
 }

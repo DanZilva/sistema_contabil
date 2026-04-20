@@ -2,38 +2,75 @@
 @model ContabilModel
 @using SistemaNotas.Models
 
-<h1>🧾 Painel Contábil</h1>
+<h1 class="titulo">🧾 Painel Contábil</h1>
 
-<table class="tabela">
-    <tr>
-        <th>ID</th>
-        <th>Descrição</th>
-        <th>Valor</th>
-        <th>Status</th>
-        <th>Ação</th>
-    </tr>
 
-    @foreach (var nota in Model.Notas)
-    {
-        <tr>
-            <td>@nota.Id</td>
-            <td>@nota.Numero - @nota.Fornecedor</td>
-            <td>R$ @nota.Valor</td>
-            <td>
-                <span class="status @nota.Status">@nota.Status</span>
-            </td>
+<div class="card">
 
-            <td>
-                @if (nota.Status == StatusNota.Recebida 
-                    && HttpContext.Session.GetString("Perfil") == "Contabil")
-                {
-                    <form method="post">
-                        <input type="hidden" name="id" value="@nota.Id" />
-                        <input type="text" name="setor" placeholder="Setor" />
-                        <button asp-page-handler="Classificar">Classificar</button>
-                    </form>
-                }
-            </td>
-        </tr>
-    }
-</table>
+    <table class="tabela">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nota</th>
+                <th>Valor</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var nota in Model.Notas)
+            {
+                <tr>
+                    <td>@nota.Id</td>
+
+                    <!-- 📄 Nota -->
+                    <td>@nota.Numero - @nota.Fornecedor</td>
+
+                    <td>R$ @nota.Valor</td>
+
+                    <!-- 🎯 Status -->
+                    <td>
+                        <span class="status @nota.Status">
+                            @nota.Status
+                        </span>
+                    </td>
+
+                    <!-- 🔥 AÇÕES -->
+                    <td class="acoes">
+
+                        <!-- ✏️ Editar -->
+                        <a href="/Notas/Edit?id=@nota.Id" class="btn-editar">
+                            ✏️ Editar
+                        </a>
+
+                        <!-- 📌 Classificar -->
+                        @if (nota.Status == StatusNota.Recebida)
+                        {
+                            <form method="post" class="inline-form">
+                                <input type="hidden" name="id" value="@nota.Id" />
+                                <input type="text" name="setor" placeholder="Setor" />
+                                <button asp-page-handler="Classificar">
+                                    Classificar
+                                </button>
+                            </form>
+                        }
+
+                        <!-- 🗑️ Excluir -->
+                        <form method="post" class="inline-form"
+                              onsubmit="return confirm('Tem certeza que deseja excluir esta nota?');">
+
+                            <input type="hidden" name="id" value="@nota.Id" />
+
+                            <button asp-page-handler="Excluir" class="btn-delete">
+                                🗑️ Excluir
+                            </button>
+                        </form>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

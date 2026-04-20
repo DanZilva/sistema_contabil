@@ -10,19 +10,38 @@
 </head>
 
 <body>
-    <div class="layout">
 
+@{
+    string usuario = "";
+    string perfil = "";
+
+    try
+    {
+        usuario = Context.Session?.GetString("Usuario") ?? "";
+        perfil = Context.Session?.GetString("Perfil") ?? "";
+    }
+    catch
+    {
+        usuario = "";
+        perfil = "";
+    }
+}
+
+<div class="layout">
+
+    @* 🔒 SÓ MOSTRA SIDEBAR SE ESTIVER LOGADO *@
+    @if (!string.IsNullOrEmpty(usuario))
+    {
         <aside class="sidebar">
             <h2>📊 Sistema</h2>
 
             <!-- 👤 Usuário logado -->
             <div style="color:white; margin-bottom:15px;">
-                👤 @Context.Session.GetString("Usuario")
+                👤 @usuario
             </div>
 
-            @* 🔒 MENU CONTROLADO POR PERFIL *@
-
-            @if (Context.Session.GetString("Perfil") == "Contabil")
+            <!-- 🔐 MENU POR PERFIL -->
+            @if (perfil == "Contabil")
             {
                 <a href="/">🏠 Início</a>
                 <a href="/Contabil">🧾 Contábil</a>
@@ -31,7 +50,7 @@
                 <a href="/Usuarios/Create">👤 Criar Usuário</a>
             }
 
-            @if (Context.Session.GetString("Perfil") == "Setor")
+            @if (perfil == "Setor")
             {
                 <a href="/Setor">🏢 Meu Setor</a>
             }
@@ -40,11 +59,14 @@
 
             <a href="/Logout">🚪 Sair</a>
         </aside>
+    }
 
-        <main class="content">
-            @RenderBody()
-        </main>
+    <!-- 📦 CONTEÚDO -->
+    <main class="content" style="flex:1;">
+        @RenderBody()
+    </main>
 
-    </div>
+</div>
+
 </body>
 </html>

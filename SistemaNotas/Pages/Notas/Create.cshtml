@@ -3,21 +3,16 @@
 
 <h1>🧾 Cadastrar Nota Fiscal</h1>
 
-<form method="post">
+<form method="post" class="form-box">
 
     <input asp-for="NovaNota.Numero" placeholder="Número da NF" />
     <input asp-for="NovaNota.Fornecedor" placeholder="Fornecedor" />
     <input asp-for="NovaNota.Valor" placeholder="Valor" />
 
-    <label>Data Emissão</label>
     <input type="date" asp-for="NovaNota.DataEmissao" />
-
-    <label>Vencimento</label>
     <input type="date" asp-for="NovaNota.DataVencimento" />
 
-    <input asp-for="NovaNota.Setor" placeholder="Setor (TI, Financeiro...)" />
-
-    <br /><br />
+    <input asp-for="NovaNota.Setor" placeholder="Setor" />
 
     <button type="submit">Cadastrar</button>
 
