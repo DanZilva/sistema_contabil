@@ -1,0 +1,35 @@
+@page
+@model SistemaNotas.Pages.Usuarios.CreateModel
+
+<h1>👤 Criar Usuário</h1>
+
+<form method="post">
+
+    <div>
+        <label>Usuário:</label>
+        <input asp-for="NovoUsuario.Username" />
+    </div>
+
+    <div>
+        <label>Senha:</label>
+        <input type="password" asp-for="NovoUsuario.Senha" />
+    </div>
+
+    <div>
+        <label>Perfil:</label>
+        <select asp-for="NovoUsuario.Perfil">
+            <option value="Contabil">Contábil</option>
+            <option value="Setor">Setor</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Setor:</label>
+        <input asp-for="NovoUsuario.Setor" />
+    </div>
+
+    <br />
+
+    <button type="submit">Criar</button>
+
+</form>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SistemaNotas</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class="layout">
+
+        <aside class="sidebar">
+            <h2>📊 Sistema</h2>
+
+            <!-- 👤 Usuário logado -->
+            <div style="color:white; margin-bottom:15px;">
+                👤 @Context.Session.GetString("Usuario")
+            </div>
+
+            @* 🔒 MENU CONTROLADO POR PERFIL *@
+
+            @if (Context.Session.GetString("Perfil") == "Contabil")
+            {
+                <a href="/">🏠 Início</a>
+                <a href="/Contabil">🧾 Contábil</a>
+                <a href="/Notas/Create">🧾 Nova NF</a>
+                <a href="/Dashboard">📊 Dashboard</a>
+                <a href="/Usuarios/Create">👤 Criar Usuário</a>
+            }
+
+            @if (Context.Session.GetString("Perfil") == "Setor")
+            {
+                <a href="/Setor">🏢 Meu Setor</a>
+            }
+
+            <hr style="border-color: #444;" />
+
+            <a href="/Logout">🚪 Sair</a>
+        </aside>
+
+        <main class="content">
+            @RenderBody()
+        </main>
+
+    </div>
+</body>
+</html>

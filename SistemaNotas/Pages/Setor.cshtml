@@ -1,0 +1,37 @@
+@page
+@model SetorModel
+@using SistemaNotas.Models
+
+
+<h1>🏢 Setor: @HttpContext.Session.GetString("Setor")</h1>
+
+<table class="tabela">
+    <tr>
+        <th>ID</th>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Status</th>
+        <th>Ação</th>
+    </tr>
+
+    @foreach (var nota in Model.Notas)
+    {
+        <tr>
+            <td>@nota.Id</td>
+            <td>@nota.Numero - @nota.Fornecedor</td>
+            <td>R$ @nota.Valor</td>
+            <td>
+                <span class="status @nota.Status">@nota.Status</span>
+            </td>
+
+            <td>
+                <form method="post">
+                    <input type="hidden" name="id" value="@nota.Id" />
+                    <button asp-page-handler="Concluir" class="btn-success">
+                        Concluir
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

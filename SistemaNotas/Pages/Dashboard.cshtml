@@ -1,0 +1,29 @@
+@page
+@model DashBoardModel
+
+<h1>📊 Dashboard</h1>
+
+<div class="cards">
+
+    <div class="card">
+        <h2>📄 Pendentes</h2>
+        <p>@Model.TotalPendentes</p>
+    </div>
+
+</div>
+
+<h2>📊 Notas por Setor</h2>
+
+<table class="tabela">
+    <tr>
+        <th>Setor</th>
+        <th>Quantidade</th>
+    </tr>
+
+    @foreach (var item in Model.NotasPorSetor)
+    {
+        <tr>
+            <td>@item.Key</td>
+            <td>@item.Value</td>
+        </tr>
+    }

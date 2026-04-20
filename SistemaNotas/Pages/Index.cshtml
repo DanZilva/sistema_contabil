@@ -1,0 +1,75 @@
+﻿@page
+@model IndexModel
+@using SistemaNotas.Models
+
+<h1 class="titulo">📄 Notas Fiscais</h1>
+
+<div class="filtro-box">
+    <h2>🔍 Filtrar por setor</h2>
+
+    <form method="get" class="filtro-form">
+        <input type="text" name="setor" placeholder="Ex: TI" />
+        <button type="submit">Filtrar</button>
+    </form>
+</div>
+
+<h2>📋 Lista de Notas</h2>
+
+<table class="tabela">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Valor</th>
+            <th>Setor</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var nota in Model.Notas)
+        {
+            <tr>
+                <td>@nota.Id</td>
+                <td>@nota.Numero - @nota.Fornecedor</td>
+                <td>R$ @nota.Valor</td>
+                <td>@(nota.Setor ?? "-")</td>
+
+                <!-- STATUS BONITO -->
+                <td>
+                    <span class="status @nota.Status">
+                        @nota.Status
+                    </span>
+                </td>
+
+                <td class="acoes">
+
+                    <!-- CLASSIFICAR -->
+                    @if (nota.Status == StatusNota.Recebida)
+                    {
+                        <form method="post" class="inline-form">
+                            <input type="hidden" name="id" value="@nota.Id" />
+                            <input type="text" name="setor" placeholder="Setor" />
+                            <button type="submit" asp-page-handler="Classificar">
+                                Classificar
+                            </button>
+                        </form>
+                    }
+
+                    <!-- CONCLUIR -->
+                    @if (nota.Status != StatusNota.Concluida && nota.Status != StatusNota.Recebida)
+                    {
+                        <form method="post" class="inline-form">
+                            <input type="hidden" name="id" value="@nota.Id" />
+                            <button type="submit" asp-page-handler="Concluir" class="btn-success">
+                                Concluir
+                            </button>
+                        </form>
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

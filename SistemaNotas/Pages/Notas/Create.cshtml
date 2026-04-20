@@ -1,0 +1,24 @@
+@page
+@model SistemaNotas.Pages.Notas.CreateModel
+
+<h1>🧾 Cadastrar Nota Fiscal</h1>
+
+<form method="post">
+
+    <input asp-for="NovaNota.Numero" placeholder="Número da NF" />
+    <input asp-for="NovaNota.Fornecedor" placeholder="Fornecedor" />
+    <input asp-for="NovaNota.Valor" placeholder="Valor" />
+
+    <label>Data Emissão</label>
+    <input type="date" asp-for="NovaNota.DataEmissao" />
+
+    <label>Vencimento</label>
+    <input type="date" asp-for="NovaNota.DataVencimento" />
+
+    <input asp-for="NovaNota.Setor" placeholder="Setor (TI, Financeiro...)" />
+
+    <br /><br />
+
+    <button type="submit">Cadastrar</button>
+
+</form>

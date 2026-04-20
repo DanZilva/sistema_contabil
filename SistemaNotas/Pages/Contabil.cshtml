@@ -1,0 +1,39 @@
+@page
+@model ContabilModel
+@using SistemaNotas.Models
+
+<h1>🧾 Painel Contábil</h1>
+
+<table class="tabela">
+    <tr>
+        <th>ID</th>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Status</th>
+        <th>Ação</th>
+    </tr>
+
+    @foreach (var nota in Model.Notas)
+    {
+        <tr>
+            <td>@nota.Id</td>
+            <td>@nota.Numero - @nota.Fornecedor</td>
+            <td>R$ @nota.Valor</td>
+            <td>
+                <span class="status @nota.Status">@nota.Status</span>
+            </td>
+
+            <td>
+                @if (nota.Status == StatusNota.Recebida 
+                    && HttpContext.Session.GetString("Perfil") == "Contabil")
+                {
+                    <form method="post">
+                        <input type="hidden" name="id" value="@nota.Id" />
+                        <input type="text" name="setor" placeholder="Setor" />
+                        <button asp-page-handler="Classificar">Classificar</button>
+                    </form>
+                }
+            </td>
+        </tr>
+    }
+</table>
