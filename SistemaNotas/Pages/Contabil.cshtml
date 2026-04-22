@@ -14,6 +14,7 @@
                 <th>Nota</th>
                 <th>Valor</th>
                 <th>Status</th>
+                <th>Empresa</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -36,38 +37,52 @@
                         </span>
                     </td>
 
-                    <!-- 🔥 AÇÕES -->
-                    <td class="acoes">
+                    <td>@nota.Empresa</td>
 
-                        <!-- ✏️ Editar -->
-                        <a href="/Notas/Edit?id=@nota.Id" class="btn-editar">
-                            ✏️ Editar
-                        </a>
+                    <!-- AÇÕES -->
+<td class="acoes">
 
-                        <!-- 📌 Classificar -->
-                        @if (nota.Status == StatusNota.Recebida)
-                        {
-                            <form method="post" class="inline-form">
-                                <input type="hidden" name="id" value="@nota.Id" />
-                                <input type="text" name="setor" placeholder="Setor" />
-                                <button asp-page-handler="Classificar">
-                                    Classificar
-                                </button>
-                            </form>
-                        }
+    <!-- ✏️ Editar -->
+    <a href="/Notas/Edit?id=@nota.Id" class="btn-editar">
+        ✏️ Editar
+    </a>
 
-                        <!-- 🗑️ Excluir -->
-                        <form method="post" class="inline-form"
-                              onsubmit="return confirm('Tem certeza que deseja excluir esta nota?');">
+    <!--  PDF -->
+    @if (!string.IsNullOrEmpty(nota.CaminhoArquivo))
+    {
+        <a href="@nota.CaminhoArquivo" target="_blank">
+            📄 Ver
+        </a>
 
-                            <input type="hidden" name="id" value="@nota.Id" />
+        <a href="@nota.CaminhoArquivo" download>
+            ⬇️ Baixar
+        </a>
+    }
 
-                            <button asp-page-handler="Excluir" class="btn-delete">
-                                🗑️ Excluir
-                            </button>
-                        </form>
+    <!--  Classificar -->
+    @if (nota.Status == StatusNota.Recebida)
+    {
+        <form method="post" class="inline-form">
+            <input type="hidden" name="id" value="@nota.Id" />
+            <input type="text" name="setor" placeholder="Setor" />
+            <button asp-page-handler="Classificar">
+                Classificar
+            </button>
+        </form>
+    }
 
-                    </td>
+    <!-- 🗑️ Excluir -->
+    <form method="post" class="inline-form"
+          onsubmit="return confirm('Tem certeza que deseja excluir esta nota?');">
+
+        <input type="hidden" name="id" value="@nota.Id" />
+
+        <button asp-page-handler="Excluir" class="btn-delete">
+            🗑️ Excluir
+        </button>
+    </form>
+
+</td>
                 </tr>
             }
         </tbody>

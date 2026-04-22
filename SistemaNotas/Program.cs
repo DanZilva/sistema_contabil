@@ -40,13 +40,29 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-    if (!db.Notas.Any())
-    {
-        db.Notas.AddRange(
-            new NotaFiscal { Numero = "NF001", Fornecedor = "Dell", Valor = 5000, Status = StatusNota.Recebida, Setor = "TI" },
-            new NotaFiscal { Numero = "NF002", Fornecedor = "Contábil LTDA", Valor = 2000, Status = StatusNota.Recebida, Setor = "Financeiro" }
-        );
-    }
+   if (!db.Notas.Any())
+{
+    db.Notas.AddRange(
+        new NotaFiscal 
+        { 
+            Numero = "NF001",
+            Fornecedor = "Dell",
+            Valor = 5000,
+            Empresa = "DER", // 
+            Status = StatusNota.Recebida,
+            Setor = "TI"
+        },
+        new NotaFiscal 
+        { 
+            Numero = "NF002",
+            Fornecedor = "Contábil LTDA",
+            Valor = 2000,
+            Empresa = "TRANSBETIM", // 
+            Status = StatusNota.Recebida,
+            Setor = "Financeiro"
+        }
+    );
+}
 
     if (!db.Usuarios.Any())
     {

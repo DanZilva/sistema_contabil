@@ -20,8 +20,12 @@ namespace SistemaNotas.Models
         public DateTime DataEmissao { get; set; }
         public DateTime DataVencimento { get; set; }
 
+        public string Empresa {get; set;}
+
         public string Setor { get; set; }
 
         public StatusNota Status { get; set; }
+
+        public string? CaminhoArquivo { get; set; }
     }
 }

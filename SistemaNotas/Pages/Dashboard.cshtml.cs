@@ -13,7 +13,7 @@ public class DashBoardModel : PageModel
 
     public Dictionary<string, int> NotasPorSetor { get; set; } = new();
 
-    // 🔥 CONSTRUTOR
+    //  CONSTRUTOR
     public DashBoardModel(AppDbContext context)
     {
         _context = context;

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaNotas.Data;
 
@@ -10,9 +11,11 @@ using SistemaNotas.Data;
 namespace SistemaNotas.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260422140452_AddCaminhoArquivo")]
+    partial class AddCaminhoArquivo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
@@ -30,10 +33,6 @@ namespace SistemaNotas.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DataVencimento")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Empresa")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Fornecedor")

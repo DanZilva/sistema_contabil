@@ -37,7 +37,7 @@ public class ContabilModel : PageModel
 
         if (perfil != "Contabil")
         {
-            return RedirectToPage("/Setor"); // 🔥 BLOQUEIA
+            return RedirectToPage("/Setor"); // BLOQUEIA
         }
 
         var nota = _context.Notas.FirstOrDefault(n => n.Id == id);

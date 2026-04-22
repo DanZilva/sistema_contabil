@@ -2,36 +2,66 @@
 @model SetorModel
 @using SistemaNotas.Models
 
-
 <h1>🏢 Setor: @HttpContext.Session.GetString("Setor")</h1>
 
+<div class="card">
+
 <table class="tabela">
-    <tr>
-        <th>ID</th>
-        <th>Descrição</th>
-        <th>Valor</th>
-        <th>Status</th>
-        <th>Ação</th>
-    </tr>
-
-    @foreach (var nota in Model.Notas)
-    {
+    <thead>
         <tr>
-            <td>@nota.Id</td>
-            <td>@nota.Numero - @nota.Fornecedor</td>
-            <td>R$ @nota.Valor</td>
-            <td>
-                <span class="status @nota.Status">@nota.Status</span>
-            </td>
-
-            <td>
-                <form method="post">
-                    <input type="hidden" name="id" value="@nota.Id" />
-                    <button asp-page-handler="Concluir" class="btn-success">
-                        Concluir
-                    </button>
-                </form>
-            </td>
+            <th>ID</th>
+            <th>Nota</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th>Ação</th>
         </tr>
-    }
+    </thead>
+
+    <tbody>
+        @foreach (var nota in Model.Notas)
+        {
+            <tr>
+                <td>@nota.Id</td>
+
+                <td>@nota.Numero - @nota.Fornecedor</td>
+
+                <td>R$ @nota.Valor</td>
+
+                <td>
+                    <span class="status @nota.Status">
+                        @nota.Status
+                    </span>
+                </td>
+
+                <td class="acoes">
+
+                    <!--  VER PDF -->
+                    @if (!string.IsNullOrEmpty(nota.CaminhoArquivo))
+                    {
+                        <a href="@nota.CaminhoArquivo" target="_blank">
+                            📄 Ver
+                        </a>
+
+                        <a href="@nota.CaminhoArquivo" download>
+                            ⬇️ Baixar
+                        </a>
+                    }
+
+                    <!-- CONCLUIR -->
+                    @if (nota.Status != StatusNota.Concluida)
+                    {
+                        <form method="post" class="inline-form">
+                            <input type="hidden" name="id" value="@nota.Id" />
+                            <button asp-page-handler="Concluir" class="btn-success">
+                                Concluir
+                            </button>
+                        </form>
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+</div>

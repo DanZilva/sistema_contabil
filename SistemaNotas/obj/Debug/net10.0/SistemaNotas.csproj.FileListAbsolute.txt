@@ -386,4 +386,4 @@ C:\Users\dtihp001\Documents\Projeto Contabil\sistema_contabil\SistemaNotas\obj\D
 C:\Users\dtihp001\Documents\Projeto Contabil\sistema_contabil\SistemaNotas\obj\Debug\net10.0\SistemaNotas.pdb
 C:\Users\dtihp001\Documents\Projeto Contabil\sistema_contabil\SistemaNotas\obj\Debug\net10.0\SistemaNotas.genruntimeconfig.cache
 C:\Users\dtihp001\Documents\Projeto Contabil\sistema_contabil\SistemaNotas\obj\Debug\net10.0\ref\SistemaNotas.dll
-C:\Users\dtihp001\Documents\Projeto Contabil\sistema_contabil\SistemaNotas\obj\Debug\net10.0\compressed\77nve7o5vo-{0}-zb41s3dlly-zb41s3dlly.gz
+C:\Users\dtihp001\Documents\Projeto Contabil\sistema_contabil\SistemaNotas\obj\Debug\net10.0\compressed\77nve7o5vo-{0}-lob4bw48f4-lob4bw48f4.gz

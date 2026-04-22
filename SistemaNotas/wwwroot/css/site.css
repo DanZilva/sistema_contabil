@@ -168,3 +168,33 @@ input {
     padding: 30px;
     background: #f8fafc;
 }
+
+.form-box {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-box div {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+label {
+    font-size: 13px;
+    margin-bottom: 4px;
+    color: #334155;
+}
+
+input {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+}
+
+select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+}

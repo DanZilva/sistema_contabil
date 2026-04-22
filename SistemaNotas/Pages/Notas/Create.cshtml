@@ -3,17 +3,65 @@
 
 <h1>🧾 Cadastrar Nota Fiscal</h1>
 
-<form method="post" class="form-box">
+<div class="card">
 
-    <input asp-for="NovaNota.Numero" placeholder="Número da NF" />
-    <input asp-for="NovaNota.Fornecedor" placeholder="Fornecedor" />
-    <input asp-for="NovaNota.Valor" placeholder="Valor" />
+<form method="post" enctype="multipart/form-data">
 
-    <input type="date" asp-for="NovaNota.DataEmissao" />
-    <input type="date" asp-for="NovaNota.DataVencimento" />
+    <div class="form-box">
 
-    <input asp-for="NovaNota.Setor" placeholder="Setor" />
+        <div>
+            <label>Número da NF</label>
+            <input asp-for="NovaNota.Numero" />
+        </div>
+
+        <div>
+            <label>Fornecedor</label>
+            <input asp-for="NovaNota.Fornecedor" />
+        </div>
+
+        <div>
+            <label>Valor</label>
+            <input asp-for="NovaNota.Valor" />
+        </div>
+
+        <div>
+            <label>Data de Emissão</label>
+            <input asp-for="NovaNota.DataEmissao" type="date" />
+        </div>
+
+        <div>
+            <label>Data de Vencimento</label>
+            <input asp-for="NovaNota.DataVencimento" type="date" />
+        </div>
+
+        <div>
+            <label>Empresa</label>
+            <select asp-for="NovaNota.Empresa" required>
+                <option value="">Selecione</option>
+                <option value="DER">DER</option>
+                <option value="TRANSBETIM">TRANSBETIM</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Arquivo (PDF)</label>
+            <input type="file" asp-for="Arquivo" />
+        </div>
+
+        <div>
+            <label>Setor</label>
+            <select name="NovaNota.Setor">
+                <option value="">Selecione</option>
+                <option value="TI">TI</option>
+                <option value="Financeiro">Financeiro</option>
+                <option value="Operacional">Operacional</option>
+            </select>
+        </div>
+
+    </div>
 
     <button type="submit">Cadastrar</button>
 
 </form>
+
+</div>
