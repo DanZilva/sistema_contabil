@@ -25,7 +25,7 @@ O setor Contábil cadastra a nota fiscal, seleciona a empresa e o setor respons�
 
 O usuário do setor visualiza apenas as notas destinadas ao seu setor e pode concluir o processamento da nota.
 
-## 🛠️ Tecnologias
+##  Tecnologias
 
 - C#
 - ASP.NET Core
@@ -36,7 +36,7 @@ O usuário do setor visualiza apenas as notas destinadas ao seu setor e pode con
 - CSS
 - Bootstrap
 
-## ▶️ Executando o projeto
+##  Executando o projeto
 
 Clone o repositório:
 
