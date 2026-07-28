@@ -1,0 +1,22 @@
+# Compilação .NET
+**/bin/
+**/obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# VS Code
+.vscode/
+
+# Banco SQLite
+*.db
+*.db-shm
+*.db-wal
+
+# Arquivos enviados pelos usuários
+**/wwwroot/uploads/*
+
+# Permite manter a pasta uploads
+!**/wwwroot/uploads/.gitkeep
